@@ -1,14 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.moonstonejewerllary.controller.LoginFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="810.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="1000.0" fitWidth="1980.0">
+         <image>
+            <Image url="@../assest/companytemplate(1).png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="9.0" fill="#00000059" height="943.0" layoutX="21.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="717.0" />
+      <JFXButton buttonType="RAISED" layoutX="230.0" layoutY="650.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: PURPLE; -fx-background-radius: 45;" text="Sign In" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </JFXButton>
+      <PasswordField layoutX="70.0" layoutY="531.0" prefHeight="60.0" prefWidth="550.0" promptText="Input Your password" style="-fx-background-radius: 45;">
+         <font>
+            <Font size="24.0" />
+         </font></PasswordField>
+      <TextField layoutX="70.0" layoutY="361.0" prefHeight="60.0" prefWidth="550.0" promptText="Input your user name" style="-fx-background-radius: 45;">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <Label layoutX="80.0" layoutY="300.0" text="User Name">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.838095238095238" focusAngle="-24.78" focusDistance="-1.0" radius="0.627906976744186">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5600000023841858" green="0.10639999806880951" blue="0.5397757887840271" opacity="0.7599999904632568" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.1174496644295302">
+                     <color>
+                        <Color red="0.5600000023841858" green="0.10639999806880951" blue="0.5397757887840271" opacity="0.7599999904632568" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="80.0" layoutY="470.0" text="Password">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.838095238095238" focusAngle="-24.78" focusDistance="-1.0" radius="0.627906976744186">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5600000023841858" green="0.10639999806880951" blue="0.5397757887840271" opacity="0.7599999904632568" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.1174496644295302">
+                     <color>
+                        <Color red="0.5600000023841858" green="0.10639999806880951" blue="0.5397757887840271" opacity="0.7599999904632568" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="230.0" layoutY="810.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: PURPLE; -fx-background-radius: 45;" text="Sign Up" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="210.0" layoutY="900.0" text="Don't have an employee account?" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="160.0" layoutY="90.0" text="WELLCOME!">
+         <font>
+            <Font name="System Bold" size="64.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.838095238095238" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5600000023841858" green="0.10639999806880951" blue="0.5397757887840271" opacity="0.7599999904632568" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.1174496644295302">
+                     <color>
+                        <Color red="0.5600000023841858" green="0.10639999806880951" blue="0.5397757887840271" opacity="0.7599999904632568" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="350.0" layoutY="740.0" text="OR">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.838095238095238" focusAngle="-24.78" focusDistance="-1.0" radius="0.627906976744186">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5600000023841858" green="0.10639999806880951" blue="0.5397757887840271" opacity="0.7599999904632568" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.1174496644295302">
+                     <color>
+                        <Color red="0.5600000023841858" green="0.10639999806880951" blue="0.5397757887840271" opacity="0.7599999904632568" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+   </children>
 </AnchorPane>

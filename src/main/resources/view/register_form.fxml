@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.moonstonejewerllary.controller.RegisterFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.RegisterFormController">
+   <children>
+      <ImageView fitHeight="1000.0" fitWidth="1280.0">
+         <image>
+            <Image url="@../assest/g5.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff15" height="595.0" layoutX="156.0" layoutY="203.0" stroke="#f5eded" strokeType="INSIDE" width="946.0" />
+      <TextField disable="true" layoutX="494.0" layoutY="385.0" prefHeight="46.0" prefWidth="439.0" style="-fx-background-radius: 30;" text="UserName">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </TextField>
+      <TextField disable="true" layoutX="494.0" layoutY="488.0" prefHeight="46.0" prefWidth="439.0" style="-fx-background-radius: 30;" text="Email">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </TextField>
+      <TextField disable="true" layoutX="494.0" layoutY="589.0" prefHeight="46.0" prefWidth="439.0" style="-fx-background-radius: 30;" text="Password">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </TextField>
+      <JFXButton />
+      <JFXButton layoutX="536.0" layoutY="240.0" text="sign up" textFill="#f8ecec">
+         <font>
+            <Font name="System Italic" size="40.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="269.0" layoutY="385.0" text="UserName" textFill="#e1d0d0">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="269.0" layoutY="496.0" text="Email" textFill="#e1d0d0">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="269.0" layoutY="612.0" text="Password" textFill="#e1d0d0">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

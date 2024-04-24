@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.DeshbordFormController">
+   <children>
+      <ImageView fitHeight="1000.0" fitWidth="1280.0">
+         <image>
+            <Image url="@../assest/GoldandBrownAestheticJewelryStoreFacebookCover(1).png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="76.0" layoutY="167.0" prefHeight="24.0" prefWidth="260.0" style="-fx-background-color: #cc8e35;" text="ITEM" textFill="#f5efefd1">
+         <font>
+            <Font name="System Italic" size="35.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="327.0" layoutX="483.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" width="241.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="327.0" layoutX="755.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" width="229.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="327.0" layoutX="1023.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" width="229.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="327.0" layoutX="491.0" layoutY="607.0" stroke="BLACK" strokeType="INSIDE" width="229.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="327.0" layoutX="755.0" layoutY="585.0" stroke="BLACK" strokeType="INSIDE" width="229.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="358.0" layoutX="1023.0" layoutY="529.0" stroke="BLACK" strokeType="INSIDE" width="229.0" />
+      <JFXButton layoutX="494.0" layoutY="133.0" prefHeight="68.0" prefWidth="218.0" style="-fx-background-color: #ffeaa7; -fx-background-radius: 50;" text="Bracelet" textFill="#000000a4">
+         <font>
+            <Font name="System Bold Italic" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="765.0" layoutY="133.0" prefHeight="68.0" prefWidth="197.0" style="-fx-background-color: #ffeaa7; -fx-background-radius: 50;" text="Earring" textFill="#000000a4">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1046.0" layoutY="133.0" prefHeight="68.0" prefWidth="184.0" style="-fx-background-color: #ffeaa7; -fx-background-radius: 50;" text="Pearl" textFill="#000000a4">
+         <font>
+            <Font name="System Bold Italic" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="516.0" layoutY="634.0" prefHeight="68.0" prefWidth="184.0" style="-fx-background-color: #ffeaa7; -fx-background-radius: 50;" text="Ring" textFill="#000000a4">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="778.0" layoutY="634.0" prefHeight="68.0" prefWidth="184.0" style="-fx-background-color: #ffeaa7; -fx-background-radius: 50;" text="Gold" textFill="#000000a4">
+         <font>
+            <Font name="System Bold Italic" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1024.0" layoutY="614.0" prefHeight="68.0" prefWidth="229.0" style="-fx-background-color: #ffeaa7; -fx-background-radius: 50;" text="Necklace" textFill="#000000a4">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
