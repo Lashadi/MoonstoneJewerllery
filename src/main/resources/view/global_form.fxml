@@ -87,20 +87,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="850.0" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="BILL">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="850.0" onAction="#btnReportOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="REPORT">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
                <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="950.0" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="REPORT">
-               <font>
-                  <Font name="System Bold Italic" size="23.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
+<!--                  <Cursor fx:constant="HAND" />-->
                </cursor>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="150.0" onAction="#btnHomeOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="Home">
@@ -116,6 +108,14 @@
                   <Font name="System Bold" size="40.0" />
                </font>
             </Label>
+            <JFXButton buttonType="RAISED" layoutX="150.0" layoutY="990.0" onAction="#btnLogoutOnAction" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="Log Out">
+               <font>
+                  <Font name="System Bold Italic" size="23.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
          </children>
       </Pane>
       <Pane fx:id="paginPane" layoutX="623.0" layoutY="-1.0" prefHeight="1080.0" prefWidth="1300.0" />

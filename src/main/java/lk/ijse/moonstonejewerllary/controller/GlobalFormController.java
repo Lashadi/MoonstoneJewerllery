@@ -3,6 +3,9 @@ package lk.ijse.moonstonejewerllary.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
+import lk.ijse.moonstonejewerllary.util.Navigation;
+
+import java.io.IOException;
 
 public class GlobalFormController {
 
@@ -10,13 +13,8 @@ public class GlobalFormController {
     private Pane paginPane;
 
     @FXML
-    void btnBillOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnCustomerOnAction(ActionEvent event) {
-
+    void btnCustomerOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(paginPane,"customer_form.fxml");
     }
 
     @FXML
@@ -31,6 +29,11 @@ public class GlobalFormController {
 
     @FXML
     void btnItemOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnLogoutOnAction(ActionEvent event) {
 
     }
 

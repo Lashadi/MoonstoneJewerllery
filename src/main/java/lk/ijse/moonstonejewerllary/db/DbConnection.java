@@ -10,12 +10,11 @@ public class DbConnection {
 
     private DbConnection() throws SQLException {
         connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/moonstonejewerllery",
+                "jdbc:mysql://localhost:3306/moonstonejewerlary",
                 "root",
                 "Ijse@123"
         );
     }
-
     public static DbConnection getInstance() throws SQLException {
         return (dbConnection == null) ? dbConnection = new DbConnection() : dbConnection;
     }
