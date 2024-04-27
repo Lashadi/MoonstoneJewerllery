@@ -21,16 +21,16 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="9.0" fill="#00000059" height="943.0" layoutX="21.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="717.0" />
-      <JFXButton buttonType="RAISED" layoutX="230.0" layoutY="650.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: PURPLE; -fx-background-radius: 45;" text="Sign In" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="230.0" layoutY="650.0" onAction="#btnSignInOnAction" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: PURPLE; -fx-background-radius: 45;" text="Sign In" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </JFXButton>
-      <PasswordField layoutX="70.0" layoutY="531.0" prefHeight="60.0" prefWidth="550.0" promptText="Input Your password" style="-fx-background-radius: 45;">
+      <PasswordField fx:id="txtPassword" layoutX="70.0" layoutY="531.0" onAction="#txtPasswordOnAction" prefHeight="60.0" prefWidth="550.0" promptText="Input Your password" style="-fx-background-radius: 45;">
          <font>
             <Font size="24.0" />
          </font></PasswordField>
-      <TextField layoutX="70.0" layoutY="361.0" prefHeight="60.0" prefWidth="550.0" promptText="Input your user name" style="-fx-background-radius: 45;">
+      <TextField fx:id="txtUsername" layoutX="70.0" layoutY="361.0" onAction="#txtUseNameOnAction" prefHeight="60.0" prefWidth="550.0" promptText="Input your user name" style="-fx-background-radius: 45;">
          <font>
             <Font size="24.0" />
          </font>
