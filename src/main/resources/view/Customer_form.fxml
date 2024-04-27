@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.CustomerFormController">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1300.0" rotate="180.0">
+         <image>
+            <Image url="@../assest/Background.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="353.0" layoutY="24.0" text="CUSTOMER MANAGEMENT" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="80.0" layoutY="250.0" text="Full Name">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCustomerName" layoutX="80.0" layoutY="280.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <Label layoutX="80.0" layoutY="150.0" text="Customer ID">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCustomerTel" layoutX="750.0" layoutY="180.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <Label layoutX="80.0" layoutY="350.0" text="Address">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCustomerId" layoutX="80.0" layoutY="180.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <Label layoutX="750.0" layoutY="150.0" text="Tel On">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCustomerAddress" layoutX="80.0" layoutY="380.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <ComboBox fx:id="cmbUserId" layoutX="750.0" layoutY="380.0" prefHeight="37.0" prefWidth="179.0" />
+      <Label layoutX="750.0" layoutY="350.0" text="User Id">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="1150.0" layoutY="452.0" onAction="#btnCustomerSaveOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #D980FA; -fx-background-radius: 35;" text="Save" textFill="#f5efef">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="1015.0" layoutY="450.0" onAction="#btnCustomerUpdateOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #B53471; -fx-background-radius: 35;" text="Update" textFill="#f5efef">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="880.0" layoutY="449.0" onAction="#btnCustomerDeleteOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #6F1E51; -fx-background-radius: 35;" text="Delete" textFill="#f5efef">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tblCustomer" layoutX="10.0" layoutY="511.0" opacity="0.6" prefHeight="560.0" prefWidth="1280.0">
+        <columns>
+          <TableColumn fx:id="colCustomerId" prefWidth="190.0" text="Customer ID" />
+            <TableColumn fx:id="colCustomerName" prefWidth="291.66668701171875" text="Customer Name" />
+            <TableColumn minWidth="0.0" prefWidth="0.0" />
+            <TableColumn fx:id="colCustomerAddress" prefWidth="204.66668701171875" text="Customer Address" />
+            <TableColumn fx:id="colTel" prefWidth="196.0" text="Telephone No" />
+            <TableColumn fx:id="colNicNo" prefWidth="234.666748046875" text="NIC No" />
+            <TableColumn fx:id="txtUserId" prefWidth="161.0" text="User ID" />
+        </columns>
+      </TableView>
+      <Label layoutX="750.0" layoutY="250.0" text="Identy Number">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCustomerNIC" layoutX="750.0" layoutY="280.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <Line endX="1198.1666259765625" layoutX="100.0" layoutY="100.0" startX="-100.0" strokeWidth="5.0" />
+      <JFXButton buttonType="RAISED" layoutX="750.0" layoutY="449.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #6F1E51; -fx-background-radius: 35;" text="Clear" textFill="#f5efef">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtSearchCustomer" layoutX="1050.0" layoutY="120.0" opacity="0.51" prefHeight="40.0" prefWidth="150.0" promptText="Search Customer" style="-fx-background-radius: 35;" />
+      <JFXButton buttonType="RAISED" layoutX="1210.0" layoutY="122.0" onAction="#btnSearchCustomerOnAction" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #D980FA; -fx-background-radius: 35;" text="Search" textFill="#f5efef" />
+   </children>
+</Pane>
