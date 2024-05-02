@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.GlobalFormController">
+<AnchorPane fx:id="mianpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.GlobalFormController">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0">
          <image>
@@ -39,7 +39,7 @@
                      </stops>
                   </LinearGradient>
                </fill></Rectangle>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="250.0" onAction="#btnCustomerOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="CUSTOMER">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="280.0" onAction="#btnCustomerOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="CUSTOMER">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -47,7 +47,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="350.0" onAction="#btnEmployeeOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="EMPLOYEE">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="380.0" onAction="#btnEmployeeOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="EMPLOYEE">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -55,7 +55,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="450.0" onAction="#btnItemOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="ITEM">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="480.0" onAction="#btnItemOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="ITEM">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -63,7 +63,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="550.0" onAction="#btnOrdersOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="ORDERS">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="580.0" onAction="#btnOrdersOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="ORDERS">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -71,31 +71,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="650.0" onAction="#btnPaymentOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="PAYMENT">
-               <font>
-                  <Font name="System Bold Italic" size="23.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="750.0" onAction="#btnSalaryOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="SALARY">
-               <font>
-                  <Font name="System Bold Italic" size="23.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="850.0" onAction="#btnReportOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="REPORT">
-               <font>
-                  <Font name="System Bold Italic" size="23.0" />
-               </font>
-               <cursor>
-<!--                  <Cursor fx:constant="HAND" />-->
-               </cursor>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="150.0" onAction="#btnHomeOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="Home">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="180.0" onAction="#btnHomeOnAction" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="Home">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -108,7 +84,7 @@
                   <Font name="System Bold" size="40.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="150.0" layoutY="990.0" onAction="#btnLogoutOnAction" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="Log Out">
+            <JFXButton buttonType="RAISED" layoutX="150.0" layoutY="970.0" onAction="#btnLogoutOnAction" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="Log Out">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>

@@ -3,6 +3,7 @@ package lk.ijse.moonstonejewerllary.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -27,6 +28,7 @@ public class LoginFormController {
     @FXML
     private TextField txtUserId;
 
+
     @FXML
     void btnSignInOnAction(ActionEvent event) throws SQLException {
         String userId = txtUserId.getText();
@@ -44,7 +46,8 @@ public class LoginFormController {
 
 
     @FXML
-    void btnSignUpOnAction(ActionEvent event) {
+    void btnSignUpOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/register_form.fxml"));
 
     }
 

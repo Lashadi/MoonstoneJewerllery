@@ -3,6 +3,7 @@ package lk.ijse.moonstonejewerllary.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Pagination;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import lk.ijse.moonstonejewerllary.util.Navigation;
 
@@ -12,6 +13,9 @@ public class GlobalFormController {
 
     @FXML
     private Pane paginPane;
+
+    @FXML
+    private AnchorPane mianpane;
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) throws IOException {
@@ -25,7 +29,7 @@ public class GlobalFormController {
 
     @FXML
     void btnHomeOnAction(ActionEvent event) throws IOException{
-    Navigation.switchPaging(paginPane,"home_form.fxml");
+    Navigation.switchPaging(paginPane,"dashboard_form.fxml");
     }
 
     @FXML
@@ -35,27 +39,12 @@ public class GlobalFormController {
 
     @FXML
     void btnLogoutOnAction(ActionEvent event) throws IOException{
-    Navigation.switchPaging(paginPane,"login_form.fxml");
+    Navigation.switchNavigation("login_form.fxml", mianpane);
     }
 
     @FXML
     void btnOrdersOnAction(ActionEvent event) throws IOException{
     Navigation.switchPaging(paginPane,"order_form.fxml");
-    }
-
-    @FXML
-    void btnPaymentOnAction(ActionEvent event) throws IOException{
-    Navigation.switchPaging(paginPane,"payment_form.fxml");
-    }
-
-    @FXML
-    void btnReportOnAction(ActionEvent event) throws IOException{
-    Navigation.switchPaging(paginPane,"report_form.fxml");
-    }
-
-    @FXML
-    void btnSalaryOnAction(ActionEvent event) throws IOException{
-    Navigation.switchPaging(paginPane,"salary_from.fxml");
     }
 
 }

@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -17,9 +18,10 @@ public class Navigation {
     private static Scene scene;
     private static Stage stage;
 
-    public static void switchNavigation(String path, ActionEvent event) throws IOException {
+    public static void switchNavigation(String path, AnchorPane event) throws IOException {
         rootNode = FXMLLoader.load(Navigation.class.getResource("/view/" + path));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) event.getScene().getWindow();
+
         scene  = new Scene(rootNode);
         stage.setScene(scene);
         stage.centerOnScreen();
