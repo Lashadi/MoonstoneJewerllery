@@ -26,13 +26,26 @@ public class LoginFormController {
     private PasswordField txtPassword;
 
     @FXML
-    private TextField txtUserId;
+    public TextField txtUserId;
 
+   /* static String userId;
+
+    private static LoginFormController controller;
+
+    public LoginFormController(){
+        controller = this;
+    }
+
+    public static LoginFormController getInstance(){
+        return controller;
+    }*/
 
     @FXML
     void btnSignInOnAction(ActionEvent event) throws SQLException {
         String userId = txtUserId.getText();
         String password = txtPassword.getText();
+
+        CustomerFormController.setUser(new User(userId,password));
 
             try{
                 UserRepo.checkCredential(userId,password,ancLogin);
@@ -47,7 +60,14 @@ public class LoginFormController {
 
     @FXML
     void btnSignUpOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/register_form.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/register_form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Register Form");
+        stage.show();
 
     }
 

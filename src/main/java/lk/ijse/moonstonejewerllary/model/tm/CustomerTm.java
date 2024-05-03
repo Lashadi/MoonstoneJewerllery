@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class CustomerTm {
-    private  String id;
-    private  String name;
+    private String id;
+    private String name;
     private String address;
     private String tel;
-    private String userId;
+    private String email;
 }
