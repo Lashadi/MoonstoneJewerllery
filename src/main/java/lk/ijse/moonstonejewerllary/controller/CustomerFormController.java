@@ -126,12 +126,26 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-
+        txtCustomerName.clear();
+        txtCustomerAddress.clear();
+        txtCustomerTel.clear();
+        txtCustomerEmail.clear();
     }
 
     @FXML
-    void btnCustomerDeleteOnAction(ActionEvent event) {
+    void btnCustomerDeleteOnAction(ActionEvent event) throws SQLException {
+        String id = txtCustomerId.getText();
 
+        try {
+            boolean isCustomerDeleted = customerRepo.deleteCustomer(id);
+            if (isCustomerDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "customer deleted").show();
+                loadAllCustomers();
+            }
+        }
+        catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     @FXML
@@ -183,7 +197,6 @@ public class CustomerFormController implements Initializable {
     void btnSearchCustomerOnAction(ActionEvent event) {
 
     }
-
 
     @FXML
     void tblCustomerOnClick(MouseEvent event) {

@@ -117,5 +117,13 @@ public class CustomerRepo {
         }
         return customer;
     }
+
+    public boolean deleteCustomer(String id) throws SQLException {
+        String sql = "DELETE FROM Customer WHERE cId = ?";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        pstm.setObject(1,id);
+
+        return pstm.executeUpdate() > 0;
+    }
 }
 
