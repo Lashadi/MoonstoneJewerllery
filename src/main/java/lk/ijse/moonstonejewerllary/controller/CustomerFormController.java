@@ -121,7 +121,6 @@ public class CustomerFormController implements Initializable {
         colCustomerAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-
     }
 
     @FXML

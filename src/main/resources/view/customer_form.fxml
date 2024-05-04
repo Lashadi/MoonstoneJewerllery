@@ -97,10 +97,9 @@
         <columns>
           <TableColumn fx:id="colCustomerId" prefWidth="190.0" text="Customer ID" />
             <TableColumn fx:id="colCustomerName" prefWidth="291.66668701171875" text="Customer Name" />
-            <TableColumn minWidth="0.0" prefWidth="0.0" />
             <TableColumn fx:id="colCustomerAddress" prefWidth="204.66668701171875" text="Customer Address" />
             <TableColumn fx:id="colTel" prefWidth="196.0" text="Telephone No" />
-            <TableColumn fx:id="colEmail" prefWidth="234.666748046875" text="Email " />
+            <TableColumn fx:id="colEmail" prefWidth="292.3333740234375" text="Email " />
         </columns>
       </TableView>
       <Label layoutX="750.0" layoutY="250.0" text="Email ">

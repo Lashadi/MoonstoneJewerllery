@@ -11,6 +11,9 @@ create table User(
                      uPassword Varchar(10) not null
 );
 
+INSERT INTO User(uId, uName, uRole, uPassword) VALUES
+                        ('U001', 'Lasha', 'Cashier', '1234');
+
 
 create table Customer(
                          cId Varchar(6) primary key,
@@ -44,10 +47,12 @@ create table Orders(
 
 create table Item(
                      iCode Varchar(10) primary key,
+                     iName Varchar(30),
                      iCategory Varchar(100),
                      iQty Int(20),
                      iPrice Decimal(10,2),
-                     iName Varchar(30)
+                     Date date
+
 );
 
 
