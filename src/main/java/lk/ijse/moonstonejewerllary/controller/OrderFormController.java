@@ -2,6 +2,7 @@ package lk.ijse.moonstonejewerllary.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -9,8 +10,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import lk.ijse.moonstonejewerllary.repository.OrderRepo;
 
-public class OrderFormController {
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+
+public class OrderFormController implements Initializable {
 
     @FXML
     private ComboBox<?> cmbCustomerId;
@@ -63,6 +69,15 @@ public class OrderFormController {
     @FXML
     private TextField txtUnitPrice;
 
+    OrderRepo orderRepo = new OrderRepo();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            txtOrderId.setText(orderRepo.generateNextOrderId());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
 
@@ -107,4 +122,5 @@ public class OrderFormController {
     void txtQtyOnAction(ActionEvent event) {
 
     }
+
 }
