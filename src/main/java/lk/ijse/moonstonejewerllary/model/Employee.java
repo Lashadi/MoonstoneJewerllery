@@ -13,5 +13,6 @@ public class Employee {
     private String name;
     private String address;
     private String tel;
+    private String userId;
 }
 

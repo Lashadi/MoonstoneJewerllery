@@ -2,13 +2,17 @@ package lk.ijse.moonstonejewerllary.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class OrderFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class OrderFormController implements Initializable {
 
     @FXML
     private ComboBox<?> cmbCustomerId;
@@ -55,6 +59,11 @@ public class OrderFormController {
     @FXML
     private TextField txtUnitPrice;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
 
@@ -94,5 +103,6 @@ public class OrderFormController {
     void txtUserIdOnAction(ActionEvent event) {
 
     }
+
 
 }

@@ -121,7 +121,17 @@ public class ItemFormController implements Initializable {
 
     @FXML
     void btnItemDeleteOnAction(ActionEvent event) {
-
+        String code = txtItemCode.getText();
+        try {
+            boolean isItemDeleted = itemRepo.deleteItem(code);
+            if(isItemDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Item Deleted").show();
+                loadAllItem();
+                btnItemClearOnAction(event);
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     @FXML
@@ -140,6 +150,7 @@ public class ItemFormController implements Initializable {
             if(isItemSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Item Saved").show();
                 loadAllItem();
+                tblItem.refresh();
                 btnItemClearOnAction(event);
             }
         } catch (SQLException e) {
@@ -150,18 +161,64 @@ public class ItemFormController implements Initializable {
 
     @FXML
     void btnItemUpdateOnAction(ActionEvent event) {
+        String code = txtItemCode.getText();
+        String name = txtItemName.getText();
+        String category = txtItemCategory.getText();
+        int qty = Integer.parseInt(txtQty.getText());
+        double price = Double.parseDouble(txtUnitPrice.getText());
+        Date date = Date.valueOf(dpDate.getValue());
+
+
+
+        Item item = new Item(code, name, category, qty, price,date);
+
+        try {
+            boolean isItemUpdated = itemRepo.updateItem(item);
+            if (isItemUpdated) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Item Updated").show();
+                loadAllItem();
+            }
+        }catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
 
     }
 
     @FXML
     void btnSearchItemOnAction(ActionEvent event) {
+        String code = txtSearchItem.getText();
 
+        try {
+            Item item = itemRepo.searchById(code);
+            if(item != null) {
+                txtItemCode.setText(item.getCode());
+                txtItemName.setText(item.getItemName());
+                txtItemCategory.setText(item.getCategory());
+                txtQty.setText(String.valueOf(item.getQty()));
+                txtUnitPrice.setText(String.valueOf(item.getPrice()));
+                dpDate.getValue();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
-    @FXML
-    void txtUserIdOnAction(ActionEvent event) {
 
+    public void txtItemCodeSearchOnAction(ActionEvent actionEvent) {
+        String itemCode = txtItemCode.getText();
+
+        try {
+            Item item = itemRepo.searchById(itemCode);
+            if(item != null) {
+                txtItemCode.setText(item.getCode());
+                txtItemName.setText(item.getItemName());
+                txtItemCategory.setText(item.getCategory());
+                txtQty.setText(String.valueOf(item.getQty()));
+                txtUnitPrice.setText(String.valueOf(item.getPrice()));
+                dpDate.getValue();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
-
-
 }
