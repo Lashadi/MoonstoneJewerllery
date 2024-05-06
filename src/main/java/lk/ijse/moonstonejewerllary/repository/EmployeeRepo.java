@@ -59,15 +59,14 @@ public class EmployeeRepo {
     }
 
     public static boolean updateEmployee(Employee employee) throws  SQLException {
-        String sql = "UPDATE Employee SET eName = ?, eAddress = ?, eTel = ?, uId = ? WHERE eId = ?";
+        String sql = "UPDATE Employee SET eName = ?, eAddress = ?, eTel = ? WHERE eId = ?";
 
         PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
 
-        preparedStatement.setString(1,employee.getId());
-        preparedStatement.setString(2,employee.getName());
-        preparedStatement.setString(3,employee.getAddress());
-        preparedStatement.setString(4,employee.getTel());
-        preparedStatement.setString(5,employee.getUserId());
+        preparedStatement.setString(1,employee.getName());
+        preparedStatement.setString(2,employee.getAddress());
+        preparedStatement.setString(3,employee.getTel());
+        preparedStatement.setString(4,employee.getId());
 
         return preparedStatement.executeUpdate() > 0;
 

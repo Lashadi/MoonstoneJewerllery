@@ -82,12 +82,13 @@ public class ItemRepo {
 
         PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
 
-     preparedStatement.setObject(1,item.getCode());
-     preparedStatement.setObject(2, item.getItemName());
-     preparedStatement.setObject(3, item.getCategory());
-     preparedStatement.setObject(4, item.getQty());
-     preparedStatement.setObject(5, item.getPrice());
-     preparedStatement.setObject(6, item.getDate());
+
+     preparedStatement.setObject(1, item.getItemName());
+     preparedStatement.setObject(2, item.getCategory());
+     preparedStatement.setObject(3, item.getQty());
+     preparedStatement.setObject(4, item.getPrice());
+     preparedStatement.setObject(5, item.getDate());
+     preparedStatement.setObject(6,item.getCode());
 
      return  preparedStatement.executeUpdate() > 0;
     }
