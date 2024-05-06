@@ -15,9 +15,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.ItemFormController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.ItemFormController">
    <children>
-      <ImageView fitHeight="1080.0" fitWidth="1300.0" rotate="180.0">
+      <ImageView fitHeight="980.0" fitWidth="1300.0" rotate="180.0">
          <image>
             <Image url="@../assest/Background.jpg" />
          </image>
@@ -92,7 +92,7 @@
             <Font size="23.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tblItem" layoutX="10.0" layoutY="511.0" opacity="0.6" prefHeight="560.0" prefWidth="1280.0">
+      <TableView fx:id="tblItem" layoutX="10.0" layoutY="511.0" opacity="0.6" prefHeight="459.0" prefWidth="1280.0">
          <columns>
             <TableColumn fx:id="colItemCode" prefWidth="243.3333282470703" text="Item Code" />
             <TableColumn fx:id="colItemName" prefWidth="403.0" text="Item Name" />

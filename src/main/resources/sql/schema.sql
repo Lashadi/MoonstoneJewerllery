@@ -26,24 +26,25 @@ create table Customer(
 );
 
 
+create table Orders(
+                       oId Varchar(10) primary key,
+                       date Date,
+                       cId Varchar(6),
+                       constraint foreign key(cId) references Customer(cId) on delete cascade on update cascade
+);
 
 create table Payment(
                         pId Varchar(6) primary key,
-                        pBill Varchar(10),
-                        pAmount Decimal(10,2),
-                        date Date,
                         cId Varchar(6) not null,
-                        constraint foreign key(cId) references Customer(cId) on delete cascade on update cascade
+                        constraint foreign key(cId) references Customer(cId) on delete cascade on update cascade,
+                        oId VARCHAR(10) not null,
+                        constraint foreign key(oId) references Orders(oId) on delete cascade on update cascade,
+                        pAmount Decimal(10,2),
+                        date Date
 );
 
 
-create table Orders(
-                       oId Varchar(10) primary key,
-                       pId Varchar(6),
-                       cId Varchar(6),
-                       constraint foreign key(cId) references Customer(cId) on delete cascade on update cascade,
-                       constraint foreign key(pId) references Payment(pId) on delete cascade on update cascade
-);
+
 
 create table Item(
                      iCode Varchar(10) primary key,
@@ -77,11 +78,14 @@ create table Salary(
 
 
 create table Order_Detail(
-                             id Varchar(10) primary key not null,
+                             oId Varchar(10),
+                             constraint foreign key(oId) references Orders(oId) on delete cascade on update cascade,
+                             iCode Varchar(10) not null,
+                             constraint foreign key(iCode) references Item(iCode) on delete cascade on update cascade,
                              price Decimal(10,2),
                              qty Int(20),
-                             iCode Varchar(10) not null,
-                             constraint foreign key(iCode) references Item(iCode) on delete cascade on update cascade
+                             totalAmount Decimal(10,2)
+
 );
 
 

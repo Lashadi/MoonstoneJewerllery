@@ -16,9 +16,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.OrderFormController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.OrderFormController">
    <children>
-      <ImageView fitHeight="1080.0" fitWidth="1300.0" rotate="180.0">
+      <ImageView fitHeight="980.0" fitWidth="1300.0" rotate="180.0">
          <image>
             <Image url="@../assest/Background.jpg" />
          </image>
@@ -81,11 +81,11 @@
             <Font size="23.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tblItem" layoutX="10.0" layoutY="511.0" opacity="0.6" prefHeight="560.0" prefWidth="1280.0">
+      <TableView fx:id="tblOrderDetails" layoutX="10.0" layoutY="511.0" opacity="0.6" prefHeight="397.0" prefWidth="1280.0">
          <columns>
-            <TableColumn fx:id="colItemName" prefWidth="243.3333282470703" text="Item Name" />
-            <TableColumn fx:id="colUnitPrice" prefWidth="238.6666717529297" text="Unit Price" />
-            <TableColumn minWidth="0.0" prefWidth="192.0" />
+            <TableColumn fx:id="colItemCode" prefWidth="243.3333282470703" text="Item Code" />
+            <TableColumn fx:id="colItemName" prefWidth="238.6666717529297" text="Item Name" />
+            <TableColumn fx:id="colUnitPrice" minWidth="0.0" prefWidth="192.0" text="Unit Price" />
             <TableColumn fx:id="colItemQty" prefWidth="225.0" text="Qty" />
             <TableColumn fx:id="colTotalAmount" prefWidth="200.0" text="Total amount" />
             <TableColumn fx:id="colDeleteItem" prefWidth="180.00006103515625" text="Delete Item" />
@@ -100,7 +100,7 @@
       <TextField fx:id="txtSearchItem" layoutX="1050.0" layoutY="120.0" onAction="#txtItemSearchOnAction" opacity="0.51" prefHeight="40.0" prefWidth="150.0" promptText="Search Item" style="-fx-background-radius: 35; -fx-border-radius: 35; -fx-border-color: black;" />
       <JFXButton buttonType="RAISED" layoutX="1210.0" layoutY="120.0" onAction="#btnSearchItemOnAction" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #D980FA; -fx-background-radius: 35; -fx-border-color: black; -fx-border-radius: 35;" text="Search" textFill="#f5efef" />
       <DatePicker fx:id="dpOrderDate" layoutX="80.0" layoutY="360.0" prefHeight="40.0" prefWidth="350.0" />
-      <TextField fx:id="txtQtyOnHand" layoutX="750.0" layoutY="360.0" onAction="#txtUserIdOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtQtyOnHand" layoutX="750.0" layoutY="360.0" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 35;" />
       <ComboBox fx:id="cmbCustomerId" layoutX="80.0" layoutY="270.0" onAction="#cmbCustomerIdOnAction" prefHeight="40.0" prefWidth="350.0" />
       <Label layoutX="80.0" layoutY="420.0" text="Item Code">
          <font>
@@ -114,6 +114,21 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUnitPrice" layoutX="750.0" layoutY="270.0" onAction="#txtUserIdOnAction" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtUnitPrice" layoutX="750.0" layoutY="270.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <Label layoutX="100.0" layoutY="930.0" text="Net Total  :">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNetTotal" layoutX="250.0" layoutY="930.0" onDragDetected="#lblNetTotalOnAction" textFill="#ac1de4">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="1081.0" layoutY="922.0" onAction="#btnOrderPlaceOnAction" style="-fx-background-color: #D980FA; -fx-background-radius: 35; -fx-border-color: black; -fx-border-radius: 35;" text="Order Confirm" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </JFXButton>
    </children>
 </Pane>

@@ -2,17 +2,15 @@ package lk.ijse.moonstonejewerllary.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class OrderFormController implements Initializable {
+public class OrderFormController {
 
     @FXML
     private ComboBox<?> cmbCustomerId;
@@ -22,6 +20,9 @@ public class OrderFormController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colDeleteItem;
+
+    @FXML
+    private TableColumn<?, ?> colItemCode;
 
     @FXML
     private TableColumn<?, ?> colItemName;
@@ -39,7 +40,10 @@ public class OrderFormController implements Initializable {
     private DatePicker dpOrderDate;
 
     @FXML
-    private TableView<?> tblItem;
+    private Label lblNetTotal;
+
+    @FXML
+    private TableView<?> tblOrderDetails;
 
     @FXML
     private TextField txtItemName;
@@ -59,13 +63,13 @@ public class OrderFormController implements Initializable {
     @FXML
     private TextField txtUnitPrice;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    void btnAddToCartOnAction(ActionEvent event) {
 
     }
 
     @FXML
-    void btnAddToCartOnAction(ActionEvent event) {
+    void btnOrderPlaceOnAction(ActionEvent event) {
 
     }
 
@@ -85,6 +89,11 @@ public class OrderFormController implements Initializable {
     }
 
     @FXML
+    void lblNetTotalOnAction(MouseEvent event) {
+
+    }
+
+    @FXML
     void txtItemSearchOnAction(ActionEvent event) {
 
     }
@@ -98,11 +107,4 @@ public class OrderFormController implements Initializable {
     void txtQtyOnAction(ActionEvent event) {
 
     }
-
-    @FXML
-    void txtUserIdOnAction(ActionEvent event) {
-
-    }
-
-
 }
