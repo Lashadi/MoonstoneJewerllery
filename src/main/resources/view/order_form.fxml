@@ -130,5 +130,10 @@
             <Font size="22.0" />
          </font>
       </JFXButton>
+      <Label fx:id="lblCustomerName" layoutX="470.0" layoutY="275.0" onDragDetected="#lblNetTotalOnAction" textFill="#ac1de4">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

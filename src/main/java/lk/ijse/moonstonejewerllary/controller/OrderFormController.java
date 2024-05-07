@@ -1,5 +1,7 @@
 package lk.ijse.moonstonejewerllary.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,16 +12,19 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import lk.ijse.moonstonejewerllary.model.Customer;
+import lk.ijse.moonstonejewerllary.repository.CustomerRepo;
 import lk.ijse.moonstonejewerllary.repository.OrderRepo;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class OrderFormController implements Initializable {
 
     @FXML
-    private ComboBox<?> cmbCustomerId;
+    private ComboBox<String> cmbCustomerId;
 
     @FXML
     private ComboBox<?> cmbItemCode;
@@ -44,6 +49,9 @@ public class OrderFormController implements Initializable {
 
     @FXML
     private DatePicker dpOrderDate;
+
+    @FXML
+    private Label lblCustomerName;
 
     @FXML
     private Label lblNetTotal;
@@ -77,7 +85,23 @@ public class OrderFormController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        getCustomerId();
     }
+
+    private void getCustomerId() {
+        ObservableList<String> customerIdList = FXCollections.observableArrayList();
+
+        try {
+            List<String>idList = OrderRepo.getCustomerIds();
+            for(String id : idList){
+                customerIdList.add(id);
+            }
+            cmbCustomerId.setItems(customerIdList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
 
@@ -95,7 +119,14 @@ public class OrderFormController implements Initializable {
 
     @FXML
     void cmbCustomerIdOnAction(ActionEvent event) {
+        String customerId = cmbCustomerId.getValue();
 
+        try {
+            Customer customer = CustomerRepo.searchByCustomerId(customerId);
+            lblCustomerName.setText(customer.getName());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

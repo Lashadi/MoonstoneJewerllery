@@ -97,7 +97,7 @@ public class CustomerRepo {
         return pstm.executeUpdate() > 0;
     }
 
-    public Customer searchByCustomerId(String Customerid) throws SQLException {
+    public static Customer searchByCustomerId(String Customerid) throws SQLException {
         String sql = "SELECT * FROM Customer WHERE cId = ?";
         PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
         pstm.setObject(1,Customerid);
@@ -124,6 +124,26 @@ public class CustomerRepo {
         pstm.setObject(1,id);
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public Customer searchByTelephone(String telephone) throws SQLException {
+        String sql = "SELECT * FROM Customer WHERE cTel = ?";
+        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        preparedStatement.setObject(1,telephone);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        Customer customer = null;
+        if(resultSet.next()){
+            String cId = resultSet.getString(1);
+            String cName = resultSet.getString(2);
+            String cAddress = resultSet.getString(3);
+            String cEmail = resultSet.getString(4);
+            String cTel = resultSet.getString(5);
+            String userId = resultSet.getString(6);
+
+            customer = new Customer(cId, cName,cAddress,cEmail,cTel,userId);
+        }
+        return customer;
     }
 }
 

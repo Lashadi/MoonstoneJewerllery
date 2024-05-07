@@ -5,6 +5,8 @@ import lk.ijse.moonstonejewerllary.db.DbConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class OrderRepo {
@@ -41,5 +43,18 @@ public class OrderRepo {
             }
         }
         return nextOrderId;
+    }
+
+    public static List<String> getCustomerIds() throws SQLException {
+        List<String> customerIds = new ArrayList<>();
+
+        String sql = "SELECT cId FROM Customer";
+        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while(resultSet.next()){
+            customerIds.add(resultSet.getString(1));
+        }
+        return customerIds;
     }
 }

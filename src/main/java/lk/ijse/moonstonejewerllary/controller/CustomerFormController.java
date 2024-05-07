@@ -163,6 +163,7 @@ public class CustomerFormController implements Initializable {
             if(isCustomerSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer Saved").show();
                 loadAllCustomers();
+                btnClearOnAction(event);
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -194,7 +195,20 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnSearchCustomerOnAction(ActionEvent event) {
+        String telephone = txtSearchCustomer.getText();
 
+        try {
+            Customer customer = customerRepo.searchByTelephone(telephone);
+            if(customer != null){
+                txtCustomerId.setText(customer.getId());
+                txtCustomerName.setText(customer.getName());
+                txtCustomerAddress.setText(customer.getAddress());
+                txtCustomerTel.setText(customer.getTel());
+                txtCustomerEmail.setText(customer.getEmail());
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     @FXML

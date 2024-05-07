@@ -88,7 +88,10 @@ public class EmployeeFormController implements Initializable {
 
     @FXML
     void btnEmployeeClearOnAction(ActionEvent event) {
-
+        txtEmplyeeName.clear();
+        txtEmplyeeAddress.clear();
+        txtEmplyeeAddress.clear();
+        txtEmployeeTel.clear();
     }
 
     @FXML
@@ -122,6 +125,7 @@ public class EmployeeFormController implements Initializable {
             boolean isEmployeeSaved =  EmployeeRepo.saveEmployee(employee);
             if(isEmployeeSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved").show();
+                btnEmployeeClearOnAction(event);
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
