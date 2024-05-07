@@ -1,8 +1,16 @@
 package lk.ijse.moonstonejewerllary.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class PlaceOrder {
     private Order order;
-    private List<OrderDetails> orderDetailsList;
+    private List<OrderDetails> orderDetails;
+    private Payment payment;
 }

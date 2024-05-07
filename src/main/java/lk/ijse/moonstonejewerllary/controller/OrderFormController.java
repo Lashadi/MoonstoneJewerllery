@@ -7,23 +7,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import lk.ijse.moonstonejewerllary.model.Customer;
-import lk.ijse.moonstonejewerllary.model.Item;
-import lk.ijse.moonstonejewerllary.repository.CustomerRepo;
-import lk.ijse.moonstonejewerllary.repository.ItemRepo;
-import lk.ijse.moonstonejewerllary.repository.OrderRepo;
+import lk.ijse.moonstonejewerllary.model.*;
+import lk.ijse.moonstonejewerllary.model.tm.AddToCartTm;
+import lk.ijse.moonstonejewerllary.repository.*;
 
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class OrderFormController implements Initializable {
@@ -62,7 +59,7 @@ public class OrderFormController implements Initializable {
     private Label lblNetTotal;
 
     @FXML
-    private TableView<?> tblOrderDetails;
+    private TableView<AddToCartTm> tblOrderDetails;
 
     @FXML
     private TextField txtItemName;
@@ -82,17 +79,31 @@ public class OrderFormController implements Initializable {
     @FXML
     private TextField txtUnitPrice;
 
-    OrderRepo orderRepo = new OrderRepo();
+
+    private ObservableList<AddToCartTm> itemTmObservableList = FXCollections.observableArrayList();
+    double netTotalAmount = 0;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            txtOrderId.setText(orderRepo.generateNextOrderId());
+            txtOrderId.setText(OrderRepo.generateNextOrderId());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         getCustomerId();
         getItemCode();
+        setCellValueFactory();
     }
+
+    private void setCellValueFactory() {
+        colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
+        colItemName.setCellValueFactory(new PropertyValueFactory<>("itemName"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colItemQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colTotalAmount.setCellValueFactory(new PropertyValueFactory<>("totalAmount"));
+        colDeleteItem.setCellValueFactory(new PropertyValueFactory<>("remove"));
+    }
+
 
     private void getItemCode() {
         ObservableList<String> itemCodeList = FXCollections.observableArrayList();
@@ -127,17 +138,91 @@ public class OrderFormController implements Initializable {
         String itemCode = cmbItemCode.getValue();
         String itemName = txtItemName.getText();
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
-        int Qty = Integer.parseInt(txtQty.getText());
-        double totalAmount = unitPrice*Qty;
+        int qty = Integer.parseInt(txtQty.getText());
+        double totalAmount = unitPrice*qty;
         JFXButton btnDelete = new JFXButton("Remove");
         btnDelete.setCursor(Cursor.HAND);
 
+        btnDelete.setOnAction((e)->{
+            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", yes, no).showAndWait();
+            if(type.orElse(no) == yes){
+                int index = tblOrderDetails.getSelectionModel().getFocusedIndex();
+                itemTmObservableList.remove(index);
+                tblOrderDetails.refresh();
+                calculateNetAmount();
+            }
+        });
+        for(int i = 0; i<tblOrderDetails.getItems().size(); i++){
+            if(itemCode.equals(colItemCode.getCellData(i))){
+               qty += itemTmObservableList.get(i).getQty();
+               totalAmount += unitPrice*qty;
+
+               itemTmObservableList.get(i).setQty(qty);
+               itemTmObservableList.get(i).setTotalAmount(totalAmount);
+
+               tblOrderDetails.refresh();
+               calculateNetAmount();
+               txtQty.clear();
+               cmbItemCode.requestFocus();
+               return;
+            }
+        }
+        AddToCartTm addToCartTm = new AddToCartTm(itemCode, itemName, unitPrice, qty, totalAmount, btnDelete);
+        itemTmObservableList.add(addToCartTm);
+        tblOrderDetails.setItems(itemTmObservableList);
+        txtQty.clear();
+        calculateNetAmount();
 
     }
 
-    @FXML
-    void btnOrderPlaceOnAction(ActionEvent event) {
+    private void calculateNetAmount() {
+        netTotalAmount = 0;
+        for(int i=0;i<tblOrderDetails.getItems().size();i++){
+            netTotalAmount +=(double)colTotalAmount.getCellData(i);
+        }
+        lblNetTotal.setText(String.valueOf(netTotalAmount));
+    }
 
+    @FXML
+    void btnOrderPlaceOnAction(ActionEvent event) throws SQLException {
+        String orderId = txtOrderId.getText();
+        Date date = Date.valueOf(dpOrderDate.getValue());
+        String customerId = cmbCustomerId.getValue();
+
+        Order order = new Order(orderId, date, customerId);
+
+        List<OrderDetails>orderList = new ArrayList<>();
+        double netAmount = 0;
+        for(int i=0; i<tblOrderDetails.getItems().size();i++){
+            AddToCartTm addToCartTm = itemTmObservableList.get(i);
+            OrderDetails orderDetails = new OrderDetails(
+                    orderId,
+                    addToCartTm.getItemCode(),
+                    addToCartTm.getUnitPrice(),
+                    addToCartTm.getQty(),
+                    addToCartTm.getTotalAmount()
+            );
+            orderList.add(orderDetails);
+            netAmount += addToCartTm.getTotalAmount();
+        }
+        String paymentID = PaymentRepo.generatePaymentId();
+        Payment payment = new Payment(paymentID, customerId, orderId, netAmount, date);
+
+        PlaceOrder placeOrder = new PlaceOrder(order, orderList, payment);
+
+        try {
+            boolean isSaved = PlaceOrderRepo.orderPlace(placeOrder);
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Order Placed").show();
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Something went wrong").show();
+            }
+        }catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     @FXML

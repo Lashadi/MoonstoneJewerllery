@@ -1,6 +1,7 @@
 package lk.ijse.moonstonejewerllary.repository;
 
 import lk.ijse.moonstonejewerllary.db.DbConnection;
+import lk.ijse.moonstonejewerllary.model.Order;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -56,5 +57,16 @@ public class OrderRepo {
             customerIds.add(resultSet.getString(1));
         }
         return customerIds;
+    }
+
+    public static boolean saveOrder(Order order) throws SQLException {
+        String sql = "INSERT INTO Orders VALUES (?,?,?)";
+
+        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        preparedStatement.setString(1,order.getOrderId());
+        preparedStatement.setDate(2,order.getDate());
+        preparedStatement.setString(3,order.getCustomerId());
+
+        return preparedStatement.executeUpdate() > 0;
     }
 }

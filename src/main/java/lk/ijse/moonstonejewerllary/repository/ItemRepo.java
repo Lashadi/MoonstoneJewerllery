@@ -2,6 +2,7 @@ package lk.ijse.moonstonejewerllary.repository;
 
 import lk.ijse.moonstonejewerllary.db.DbConnection;
 import lk.ijse.moonstonejewerllary.model.Item;
+import lk.ijse.moonstonejewerllary.model.OrderDetails;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -19,6 +20,25 @@ public class ItemRepo {
             itemCodes.add(resultSet.getString(1));
         }
         return itemCodes;
+    }
+
+    public static boolean updateItemQty(List<OrderDetails> orderDetailsList) throws SQLException {
+        for(OrderDetails orderDetails : orderDetailsList){
+            if(!updateItemQty(orderDetails)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean updateItemQty(OrderDetails orderDetails) throws SQLException {
+        String sql = "UPDATE Item SET iQty = iQty - ? WHERE iCode = ?";
+        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
+
+        preparedStatement.setInt(1,orderDetails.getQty());
+        preparedStatement.setString(2,orderDetails.getItemCode());
+
+        return preparedStatement.executeUpdate() > 0;
     }
 
     public String generateNextItemId() throws SQLException, SQLException {
