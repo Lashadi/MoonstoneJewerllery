@@ -8,6 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemRepo {
+    public static List<String> getItemCodes() throws SQLException {
+        List<String> itemCodes = new ArrayList<>();
+
+        String sql = "SELECT iCode FROM Item";
+        PreparedStatement preparedStatement =  DbConnection.getInstance().getConnection().prepareStatement(sql);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while(resultSet.next()){
+            itemCodes.add(resultSet.getString(1));
+        }
+        return itemCodes;
+    }
+
     public String generateNextItemId() throws SQLException, SQLException {
         String sql = "SELECT iCode FROM Item ORDER BY iCode DESC LIMIT 1";
         Connection connection = DbConnection.getInstance().getConnection();
@@ -94,7 +107,7 @@ public class ItemRepo {
     }
 
 
-   public Item searchById(String code) throws SQLException {
+   public static Item searchById(String code) throws SQLException {
         String sql = "SELECT * FROM Item WHERE iCode = ?";
         PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
         preparedStatement.setObject(1, code);
