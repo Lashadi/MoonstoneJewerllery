@@ -13,16 +13,16 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mianpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.GlobalFormController">
+<AnchorPane fx:id="mianpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.GlobalFormController">
    <children>
-      <ImageView fitHeight="980.0" fitWidth="1920.0">
+      <ImageView fitHeight="980.0" fitWidth="1700.0">
          <image>
             <Image url="@../assest/Background.jpg" />
          </image>
       </ImageView>
-      <Pane layoutY="-3.0" prefHeight="980.0" prefWidth="620.0">
+      <Pane layoutY="-3.0" prefHeight="980.0" prefWidth="400.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="980.0" layoutX="1.0" layoutY="4.0" stroke="TRANSPARENT" strokeType="INSIDE" width="620.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="980.0" layoutX="1.0" layoutY="4.0" stroke="TRANSPARENT" strokeType="INSIDE" width="400.0">
                <fill>
                   <LinearGradient endX="0.40476190476190477" endY="0.7238095238095238" startX="0.15714285714285717" startY="1.0">
                      <stops>
@@ -39,7 +39,7 @@
                      </stops>
                   </LinearGradient>
                </fill></Rectangle>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="280.0" onAction="#btnCustomerOnAction" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="CUSTOMER">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="280.0" onAction="#btnCustomerOnAction" prefHeight="75.0" prefWidth="250.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="CUSTOMER">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -47,7 +47,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="380.0" onAction="#btnEmployeeOnAction" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="EMPLOYEE">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="380.0" onAction="#btnEmployeeOnAction" prefHeight="75.0" prefWidth="250.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="EMPLOYEE">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -55,7 +55,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="480.0" onAction="#btnItemOnAction" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="ITEM">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="480.0" onAction="#btnItemOnAction" prefHeight="75.0" prefWidth="250.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="ITEM">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -63,7 +63,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="580.0" onAction="#btnOrdersOnAction" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="ORDERS">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="580.0" onAction="#btnOrdersOnAction" prefHeight="75.0" prefWidth="250.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="ORDERS">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -71,7 +71,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="180.0" onAction="#btnHomeOnAction" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="Home">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="180.0" onAction="#btnHomeOnAction" prefHeight="75.0" prefWidth="250.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="Home">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -84,7 +84,7 @@
                   <Font name="System Bold" size="40.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="150.0" layoutY="890.0" onAction="#btnLogoutOnAction" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="Log Out">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="890.0" onAction="#btnLogoutOnAction" prefHeight="75.0" prefWidth="250.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="Log Out">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -94,6 +94,6 @@
             </JFXButton>
          </children>
       </Pane>
-      <Pane fx:id="paginPane" layoutX="623.0" layoutY="-1.0" prefHeight="980.0" prefWidth="1300.0" />
+      <Pane fx:id="paginPane" layoutX="400.0" prefHeight="980.0" prefWidth="1300.0" />
    </children>
 </AnchorPane>
