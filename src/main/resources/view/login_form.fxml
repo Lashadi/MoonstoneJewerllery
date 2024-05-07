@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -27,6 +28,9 @@
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <PasswordField fx:id="txtPassword" layoutX="70.0" layoutY="531.0" onAction="#txtPasswordOnAction" prefHeight="60.0" prefWidth="550.0" promptText="Input Your password" style="-fx-background-radius: 45;">
          <font>
@@ -51,6 +55,9 @@
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <Label layoutX="170.0" layoutY="900.0" text="Don't have an employee account?" textFill="WHITE">
          <font>
