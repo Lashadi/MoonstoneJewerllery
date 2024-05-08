@@ -92,6 +92,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="679.0" onAction="#btnSupplierOnAction" prefHeight="75.0" prefWidth="250.0" style="-fx-background-color: #ff9ff3; -fx-background-radius: 50;" text="SUPPLIER">
+               <font>
+                  <Font name="System Bold Italic" size="23.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
          </children>
       </Pane>
       <Pane fx:id="paginPane" layoutX="400.0" prefHeight="980.0" prefWidth="1300.0" />

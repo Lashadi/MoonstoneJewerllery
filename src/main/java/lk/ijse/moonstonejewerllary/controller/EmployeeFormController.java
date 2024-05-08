@@ -141,8 +141,6 @@ public class EmployeeFormController implements Initializable {
         String uId = usr.getUserId();
 
         Employee employee = new Employee(id, name, address, tel, uId);
-        System.out.println(employee);
-
         try {
             boolean isEmployeeUpdated = EmployeeRepo.updateEmployee(employee);
             if(isEmployeeUpdated) {

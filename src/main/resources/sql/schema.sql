@@ -91,9 +91,10 @@ create table Order_Detail(
 
 create table Supplier(
                          supId Varchar(10) primary key not null,
-                         supName Varchar(20),
+                         supName Varchar(20)not null,
+                         iName Varchar(100) not null,
+                         supTelephone Varchar(15) not null,
                          uId Varchar(6) not null,
-                         iName Varchar(30) not null,
                          constraint foreign key(uId) references User(uId) on delete cascade on update cascade
 );
 

@@ -47,4 +47,7 @@ public class GlobalFormController {
     Navigation.switchPaging(paginPane,"order_form.fxml");
     }
 
+    public void btnSupplierOnAction(ActionEvent actionEvent) throws IOException {
+        Navigation.switchPaging(paginPane,"supplier_form.fxml");
+    }
 }
