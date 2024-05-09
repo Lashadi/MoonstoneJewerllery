@@ -23,8 +23,8 @@
             <Image url="@../assest/companytemplate(1).png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e10122a" height="954.0" layoutX="20.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="652.0" />
-      <JFXButton buttonType="RAISED" layoutX="190.0" layoutY="650.0" onAction="#btnSignInOnAction" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: PURPLE; -fx-background-radius: 45;" text="Sign In" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1000.0" stroke="#8d44a8bd" strokeType="INSIDE" width="580.0" />
+      <JFXButton buttonType="RAISED" layoutX="152.0" layoutY="645.0" onAction="#btnSignInOnAction" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #82589F; -fx-background-radius: 45;" text="Sign In" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -32,26 +32,26 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <PasswordField fx:id="txtPassword" layoutX="70.0" layoutY="531.0" onAction="#txtPasswordOnAction" prefHeight="60.0" prefWidth="550.0" promptText="Input Your password" style="-fx-background-radius: 45;">
+      <PasswordField fx:id="txtPassword" layoutX="39.0" layoutY="523.0" onAction="#txtPasswordOnAction" prefHeight="60.0" prefWidth="512.0" promptText="Input Your password" style="-fx-background-radius: 45;">
          <font>
             <Font size="24.0" />
          </font></PasswordField>
-      <TextField fx:id="txtUserId" layoutX="70.0" layoutY="361.0" onAction="#txtUseNameOnAction" prefHeight="60.0" prefWidth="550.0" promptText="Input your user name" style="-fx-background-radius: 45;">
+      <TextField fx:id="txtUserId" layoutX="39.0" layoutY="362.0" onAction="#txtUseNameOnAction" prefHeight="60.0" prefWidth="505.0" promptText="Input your user name" style="-fx-background-radius: 45;">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <Label layoutX="80.0" layoutY="300.0" text="User Name">
+      <Label layoutX="80.0" layoutY="300.0" text="User Name" textFill="#a377b9">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="470.0" text="Password">
+      <Label layoutX="80.0" layoutY="470.0" text="Password" textFill="#a377b9">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="190.0" layoutY="810.0" onAction="#btnSignUpOnAction" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: PURPLE; -fx-background-radius: 45;" text="Sign Up" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="152.0" layoutY="807.0" onAction="#btnSignUpOnAction" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #82589F; -fx-background-radius: 45;" text="Sign Up" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -64,33 +64,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="140.0" layoutY="40.0" text="WELLCOME!">
-         <font>
-            <Font name="System Bold" size="64.0" />
-         </font>
-         <textFill>
-            <RadialGradient centerX="0.5" centerY="0.557142857142857" radius="0.5">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.5600000023841858" green="0.10639999806880951" blue="0.5397757887840271" opacity="0.7599999904632568" />
-                     </color>
-                  </Stop>
-                  <Stop offset="0.1174496644295302">
-                     <color>
-                        <Color red="0.5600000023841858" green="0.10639999806880951" blue="0.5397757887840271" opacity="0.7599999904632568" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-               </stops>
-            </RadialGradient>
-         </textFill>
-      </Label>
-      <Label layoutX="310.0" layoutY="740.0" text="OR">
+      <Label layoutX="283.0" layoutY="737.0" text="OR">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
