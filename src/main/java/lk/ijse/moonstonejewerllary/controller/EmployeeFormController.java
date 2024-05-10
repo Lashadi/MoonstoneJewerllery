@@ -5,14 +5,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.moonstonejewerllary.model.Employee;
 import lk.ijse.moonstonejewerllary.model.tm.EmployeeTm;
 import lk.ijse.moonstonejewerllary.repository.EmployeeRepo;
+import lk.ijse.moonstonejewerllary.util.DataValidateController;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -53,6 +51,19 @@ public class EmployeeFormController implements Initializable {
 
     @FXML
     private TextField txtSearchEmplyee;
+
+    @FXML
+    private Label employeeAddressValidate;
+
+    @FXML
+    private Label employeeIdValidate;
+
+    @FXML
+    private Label employeeNameValidate;
+
+    @FXML
+    private Label employeeTelValidate;
+
 
     private List<Employee>employeeList = new ArrayList<>();
 
@@ -121,15 +132,30 @@ public class EmployeeFormController implements Initializable {
 
          Employee employee = new Employee(id, name, address, tel, uId);
 
-        try {
-            boolean isEmployeeSaved =  EmployeeRepo.saveEmployee(employee);
-            if(isEmployeeSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved").show();
-                btnEmployeeClearOnAction(event);
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
+         if(DataValidateController.validateEmployeeName(txtEmplyeeName.getText())) {
+             employeeNameValidate.setText("");
+             if (DataValidateController.validateEmployeeAddress(txtEmplyeeAddress.getText())) {
+                 employeeAddressValidate.setText("");
+                 if (DataValidateController.validateEmployeeTel(txtEmployeeTel.getText())) {
+                     employeeTelValidate.setText("");
+                     try {
+                         boolean isEmployeeSaved = EmployeeRepo.saveEmployee(employee);
+                         if (isEmployeeSaved) {
+                             new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved").show();
+                             btnEmployeeClearOnAction(event);
+                         }
+                     } catch (SQLException e) {
+                         new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                     }
+                 } else {
+                     employeeTelValidate.setText("Invalid Phone Number");
+                 }
+             } else {
+                 employeeAddressValidate.setText("Invalid Address");
+             }
+         }else{
+             employeeNameValidate.setText("Invalid Name");
+         }
     }
 
     @FXML
