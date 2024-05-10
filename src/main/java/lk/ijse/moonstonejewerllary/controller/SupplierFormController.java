@@ -5,14 +5,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.moonstonejewerllary.model.Supplier;
 import lk.ijse.moonstonejewerllary.model.tm.SupplierTm;
 import lk.ijse.moonstonejewerllary.repository.SupplierRepo;
+import lk.ijse.moonstonejewerllary.util.DataValidateController;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -56,6 +54,16 @@ public class SupplierFormController implements Initializable {
 
     @FXML
     private TextField txtSupplierTel;
+
+    @FXML
+    private Label supplierItemNameValidate;
+
+    @FXML
+    private Label supplierNameValidate;
+
+    @FXML
+    private Label supplierTelValidate;
+
 
     private List<Supplier> supplierList = new ArrayList<>();
 
@@ -162,14 +170,24 @@ public class SupplierFormController implements Initializable {
 
         Supplier supplier = new Supplier(id, name, ItemName, tel, uId);
 
-        try {
-            boolean isSupplierSaved = SupplierRepo.saveSupplier(supplier);
-            if (isSupplierSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Supplier Saved!").show();
-                btnSupplierClearOnAction(event);
+        if(DataValidateController.validateSupplierName(txtSupplierName.getText())) {
+            supplierNameValidate.setText("");
+            if (DataValidateController.validateSupplierTel(txtSupplierTel.getText())) {
+                supplierTelValidate.setText("");
+                try {
+                    boolean isSupplierSaved = SupplierRepo.saveSupplier(supplier);
+                    if (isSupplierSaved) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "Supplier Saved!").show();
+                        btnSupplierClearOnAction(event);
+                    }
+                } catch (SQLException e) {
+                    new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                }
+            } else {
+                supplierTelValidate.setText("Invalid Telephone Number");
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }else{
+           supplierNameValidate.setText("Invalid Supplier Name");
         }
     }
 

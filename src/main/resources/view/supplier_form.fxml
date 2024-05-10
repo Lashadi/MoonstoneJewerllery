@@ -103,5 +103,8 @@
         </JFXButton>
         <TextField fx:id="txtSearchSupplier" layoutX="1050.0" layoutY="120.0" opacity="0.51" prefHeight="40.0" prefWidth="150.0" promptText="Enter Telephone Number" style="-fx-background-radius: 35;" />
         <JFXButton buttonType="RAISED" layoutX="1210.0" layoutY="120.0" onAction="#btnSearchSupplierOnAction" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #D980FA; -fx-background-radius: 35;" text="Search" textFill="#f5efef" />
+      <Label fx:id="supplierNameValidate" layoutX="160.0" layoutY="360.0" prefHeight="16.0" prefWidth="305.0" textFill="#ee1313" />
+      <Label fx:id="supplierItemNameValidate" layoutX="839.0" layoutY="250.0" prefHeight="16.0" prefWidth="305.0" textFill="#ee1313" />
+      <Label fx:id="supplierTelValidate" layoutX="846.0" layoutY="360.0" prefHeight="16.0" prefWidth="305.0" textFill="#ee1313" />
     </children>
 </Pane>

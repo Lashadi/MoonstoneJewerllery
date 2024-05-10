@@ -53,13 +53,13 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerName" layoutX="80.0" layoutY="280.0" onKeyReleased="#txtKeyOnReleased" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtCustomerName" layoutX="80.0" layoutY="280.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
       <Label layoutX="80.0" layoutY="150.0" text="Customer ID">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerTel" layoutX="750.0" layoutY="180.0" onKeyReleased="#txtKeyOnReleased" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtCustomerTel" layoutX="750.0" layoutY="180.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
       <Label layoutX="80.0" layoutY="350.0" text="Address">
          <font>
             <Font size="22.0" />
@@ -71,7 +71,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerAddress" layoutX="80.0" layoutY="380.0" onKeyReleased="#txtKeyOnReleased" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtCustomerAddress" layoutX="80.0" layoutY="380.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
       <ComboBox fx:id="cmbUserId" layoutX="750.0" layoutY="382.0" prefHeight="37.0" prefWidth="179.0" />
       <Label layoutX="750.0" layoutY="350.0" text="User Id">
          <font>
@@ -107,7 +107,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerEmail" layoutX="750.0" layoutY="280.0" onKeyReleased="#txtKeyOnReleased" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtCustomerEmail" layoutX="750.0" layoutY="280.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
       <Line endX="1200.0" layoutX="100.0" layoutY="100.0" startX="-100.0" strokeWidth="5.0" />
       <JFXButton buttonType="RAISED" layoutX="750.0" layoutY="449.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #6F1E51; -fx-background-radius: 35;" text="Clear" textFill="#f5efef">
          <font>

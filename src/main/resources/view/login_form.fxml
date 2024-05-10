@@ -32,11 +32,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <PasswordField fx:id="txtPassword" layoutX="39.0" layoutY="523.0" onAction="#txtPasswordOnAction" onKeyReleased="#txtKeyOnReleased" prefHeight="60.0" prefWidth="512.0" promptText="Input Your password" style="-fx-background-radius: 45;">
+      <PasswordField fx:id="txtPassword" layoutX="39.0" layoutY="523.0" onAction="#txtPasswordOnAction" prefHeight="60.0" prefWidth="512.0" promptText="Input Your password" style="-fx-background-radius: 45;">
          <font>
             <Font size="24.0" />
          </font></PasswordField>
-      <TextField fx:id="txtUserId" layoutX="39.0" layoutY="362.0" onAction="#txtUseNameOnAction" onKeyReleased="#txtKeyOnReleased" prefHeight="60.0" prefWidth="505.0" promptText="Input your user name" style="-fx-background-radius: 45;">
+      <TextField fx:id="txtUserId" layoutX="39.0" layoutY="362.0" onAction="#txtUseNameOnAction" prefHeight="60.0" prefWidth="505.0" promptText="Input your user name" style="-fx-background-radius: 45;">
          <font>
             <Font size="24.0" />
          </font>
@@ -90,7 +90,5 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Label fx:id="loginNameValidate" layoutX="62.0" layoutY="422.0" prefHeight="16.0" prefWidth="437.0" text="Label" />
-      <Label fx:id="loginPasswordValidate" layoutX="77.0" layoutY="583.0" prefHeight="16.0" prefWidth="437.0" text="Label" />
    </children>
 </AnchorPane>
