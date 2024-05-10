@@ -10,18 +10,22 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import lk.ijse.moonstonejewerllary.db.DbConnection;
 import lk.ijse.moonstonejewerllary.model.*;
 import lk.ijse.moonstonejewerllary.model.tm.AddToCartTm;
 import lk.ijse.moonstonejewerllary.repository.*;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class OrderFormController implements Initializable {
 
@@ -217,7 +221,21 @@ public class OrderFormController implements Initializable {
         try {
             boolean isSaved = PlaceOrderRepo.orderPlace(placeOrder);
             if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Order Placed").show();
+                ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+                Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Order Completed.Do you want to generate a bill?", yes, no).showAndWait();
+
+                if(type.orElse(no) == yes){
+                    Map<String,Object>parameters = new HashMap<>();
+                    InputStream resource = this.getClass().getResourceAsStream("/report/moonStone.jrxml");
+                    try{
+                        JasperReport jasperReport = JasperCompileManager.compileReport(resource);
+                        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DbConnection.getInstance().getConnection());
+                        JasperViewer.viewReport(jasperPrint, false);
+                    }catch (Exception e){
+                        throw new RuntimeException(e);
+                    }
+                }
             } else {
                 new Alert(Alert.AlertType.WARNING, "Something went wrong").show();
             }
