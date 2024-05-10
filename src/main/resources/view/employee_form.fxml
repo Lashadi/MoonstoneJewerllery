@@ -52,13 +52,13 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmplyeeName" layoutX="80.0" layoutY="280.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtEmplyeeName" layoutX="80.0" layoutY="280.0" onKeyReleased="#txtKeyOnReleased" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
       <Label layoutX="80.0" layoutY="150.0" text="Employee ID">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmployeeTel" layoutX="750.0" layoutY="180.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtEmployeeTel" layoutX="750.0" layoutY="180.0" onKeyReleased="#txtKeyOnReleased" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
       <Label layoutX="80.0" layoutY="350.0" text="Address">
          <font>
             <Font size="22.0" />
@@ -70,7 +70,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmplyeeAddress" layoutX="80.0" layoutY="380.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtEmplyeeAddress" layoutX="80.0" layoutY="380.0" onKeyReleased="#txtKeyOnReleased" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
       <JFXButton buttonType="RAISED" layoutX="1150.0" layoutY="402.0" onAction="#btnEmployeeSaveOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #D980FA; -fx-background-radius: 35;" text="Save" textFill="#f5efef">
          <font>
             <Font size="23.0" />
@@ -103,5 +103,9 @@
       </JFXButton>
       <TextField fx:id="txtSearchEmplyee" layoutX="1050.0" layoutY="120.0" opacity="0.51" prefHeight="40.0" prefWidth="150.0" promptText="Search Customer" style="-fx-background-radius: 35;" />
       <JFXButton buttonType="RAISED" layoutX="1210.0" layoutY="122.0" onAction="#btnSearchEmployeeOnAction" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #D980FA; -fx-background-radius: 35;" text="Search" textFill="#f5efef" />
+      <Label fx:id="employeeIdValidate" layoutX="89.0" layoutY="220.0" prefHeight="16.0" prefWidth="320.0" textFill="#d32828" />
+      <Label fx:id="employeeNameValidate" layoutX="89.0" layoutY="320.0" prefHeight="16.0" prefWidth="320.0" textFill="#d32828" />
+      <Label fx:id="employeeAddressValidate" layoutX="95.0" layoutY="423.0" prefHeight="16.0" prefWidth="320.0" textFill="#d32828" />
+      <Label fx:id="employeeTelValidate" layoutX="765.0" layoutY="220.0" prefHeight="16.0" prefWidth="320.0" textFill="#d32828" />
    </children>
 </Pane>

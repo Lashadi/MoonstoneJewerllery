@@ -17,7 +17,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.CustomerFormController">
    <children>
-      <ImageView fitHeight="980.0" fitWidth="1300.0" rotate="180.0">
+      <ImageView fitHeight="980.0" fitWidth="1300.0" layoutX="-2.0" rotate="180.0">
          <image>
             <Image url="@../assest/Background.jpg" />
          </image>
@@ -53,13 +53,13 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerName" layoutX="80.0" layoutY="280.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtCustomerName" layoutX="80.0" layoutY="280.0" onKeyReleased="#txtKeyOnReleased" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
       <Label layoutX="80.0" layoutY="150.0" text="Customer ID">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerTel" layoutX="750.0" layoutY="180.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtCustomerTel" layoutX="750.0" layoutY="180.0" onKeyReleased="#txtKeyOnReleased" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
       <Label layoutX="80.0" layoutY="350.0" text="Address">
          <font>
             <Font size="22.0" />
@@ -71,8 +71,8 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerAddress" layoutX="80.0" layoutY="380.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
-      <ComboBox fx:id="cmbUserId" layoutX="750.0" layoutY="380.0" prefHeight="37.0" prefWidth="179.0" />
+      <TextField fx:id="txtCustomerAddress" layoutX="80.0" layoutY="380.0" onKeyReleased="#txtKeyOnReleased" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <ComboBox fx:id="cmbUserId" layoutX="750.0" layoutY="382.0" prefHeight="37.0" prefWidth="179.0" />
       <Label layoutX="750.0" layoutY="350.0" text="User Id">
          <font>
             <Font size="22.0" />
@@ -107,7 +107,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerEmail" layoutX="750.0" layoutY="280.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+      <TextField fx:id="txtCustomerEmail" layoutX="750.0" layoutY="280.0" onKeyReleased="#txtKeyOnReleased" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
       <Line endX="1200.0" layoutX="100.0" layoutY="100.0" startX="-100.0" strokeWidth="5.0" />
       <JFXButton buttonType="RAISED" layoutX="750.0" layoutY="449.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #6F1E51; -fx-background-radius: 35;" text="Clear" textFill="#f5efef">
          <font>
@@ -116,5 +116,10 @@
       </JFXButton>
       <TextField fx:id="txtSearchCustomer" layoutX="1050.0" layoutY="120.0" opacity="0.51" prefHeight="40.0" prefWidth="150.0" promptText="Enter Telephone Number" style="-fx-background-radius: 35;" />
       <JFXButton buttonType="RAISED" layoutX="1210.0" layoutY="122.0" onAction="#btnSearchCustomerOnAction" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #D980FA; -fx-background-radius: 35;" text="Search" textFill="#f5efef" />
+      <Label fx:id="customerIdValidate" layoutX="106.0" layoutY="220.0" prefHeight="16.0" prefWidth="299.0" textFill="#d71818" />
+      <Label fx:id="customerNameValidate" layoutX="106.0" layoutY="320.0" prefHeight="16.0" prefWidth="299.0" textFill="#d71818" />
+      <Label fx:id="customerAddressValidate" layoutX="95.0" layoutY="420.0" prefHeight="16.0" prefWidth="320.0" textFill="#d71818" />
+      <Label fx:id="customerTelValidate" layoutX="766.0" layoutY="220.0" prefHeight="16.0" prefWidth="327.0" textFill="#d71818" />
+      <Label fx:id="customerEmailValidate" layoutX="762.0" layoutY="320.0" prefHeight="16.0" prefWidth="327.0" textFill="#d71818" />
    </children>
 </Pane>

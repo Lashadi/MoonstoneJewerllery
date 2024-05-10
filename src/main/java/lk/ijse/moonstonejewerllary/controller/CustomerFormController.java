@@ -13,12 +13,14 @@ import lk.ijse.moonstonejewerllary.model.Customer;
 import lk.ijse.moonstonejewerllary.model.User;
 import lk.ijse.moonstonejewerllary.model.tm.CustomerTm;
 import lk.ijse.moonstonejewerllary.repository.CustomerRepo;
+import lk.ijse.moonstonejewerllary.util.DataValidateController;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class CustomerFormController implements Initializable {
 
@@ -66,6 +68,21 @@ public class CustomerFormController implements Initializable {
     @FXML
     private TableColumn<?, ?> txtUserId;
 
+    @FXML
+    private Label customerAddressValidate;
+
+    @FXML
+    private Label customerEmailValidate;
+
+    @FXML
+    private Label customerIdValidate;
+
+    @FXML
+    private Label customerNameValidate;
+
+    @FXML
+    private Label customerTelValidate;
+
     private List<Customer> customerList = new ArrayList<>();
 
     CustomerRepo customerRepo = new CustomerRepo();
@@ -80,8 +97,8 @@ public class CustomerFormController implements Initializable {
         this.customerList=getAllCustomer();
         setCellValueFactory();
         loadAllCustomers();
-
     }
+
 
     private List<Customer> getAllCustomer() {
         List<Customer> customerList = null;
@@ -158,15 +175,35 @@ public class CustomerFormController implements Initializable {
 
         Customer customer = new Customer(id, name, address, tel, email, uId);
 
-        try {
-            boolean isCustomerSaved = customerRepo.saveCustomer(customer);
-            if(isCustomerSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Customer Saved").show();
-                loadAllCustomers();
-                btnClearOnAction(event);
+        if(DataValidateController.validateCustomerName(txtCustomerName.getText())) {
+            customerNameValidate.setText("");
+            if (DataValidateController.validateCustomerTel(txtCustomerTel.getText())) {
+                customerTelValidate.setText("");
+                if (DataValidateController.validateCustomerEmail(txtCustomerEmail.getText())) {
+                    customerEmailValidate.setText("");
+                    if (DataValidateController.validateCustomerAddress(txtCustomerAddress.getText())) {
+                        customerAddressValidate.setText("");
+                        try {
+                            boolean isCustomerSaved = customerRepo.saveCustomer(customer);
+                            if (isCustomerSaved) {
+                                new Alert(Alert.AlertType.CONFIRMATION, "Customer Saved").show();
+                                loadAllCustomers();
+                                btnClearOnAction(event);
+                            }
+                        } catch (SQLException e) {
+                            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                        }
+                    } else {
+                        customerAddressValidate.setText("Invalid Address");
+                    }
+                } else {
+                    customerEmailValidate.setText("Invalid Email");
+                }
+            } else {
+                customerTelValidate.setText("Invalid Telephone");
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }else{
+            customerNameValidate.setText("Invalid Name Type");
         }
     }
 
