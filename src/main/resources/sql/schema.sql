@@ -19,7 +19,7 @@ create table Customer(
                          cId Varchar(6) primary key,
                          cName Varchar(10),
                          cAddress Varchar(20),
-                         cTel Varchar(10),
+                         cTel Varchar(15),
                          cEmail varchar (20)not null,
                             uId Varchar(6) not null,
                          constraint foreign key(uId) references User(uId) on delete cascade on update cascade
@@ -62,7 +62,7 @@ create table Employee(
                          eId Varchar(6) primary key,
                          eName Varchar(10),
                          eAddress Varchar(20),
-                         eTel Varchar(10),
+                         eTel Varchar(15),
                          uId Varchar(6) not null,
                          constraint foreign key(uId) references User(uId) on delete cascade on update cascade
 );

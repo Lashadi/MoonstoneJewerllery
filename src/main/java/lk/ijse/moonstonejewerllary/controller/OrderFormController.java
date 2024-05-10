@@ -208,6 +208,7 @@ public class OrderFormController implements Initializable {
             orderList.add(orderDetails);
             netAmount += addToCartTm.getTotalAmount();
         }
+
         String paymentID = PaymentRepo.generatePaymentId();
         Payment payment = new Payment(paymentID, customerId, orderId, netAmount, date);
 

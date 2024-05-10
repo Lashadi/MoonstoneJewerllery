@@ -58,7 +58,7 @@
                 <Font size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtSupplierTel" layoutX="810.0" layoutY="320.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
+        <TextField fx:id="txtSupplierTel" layoutX="810.0" layoutY="320.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" text="+94" />
         <Label layoutX="810.0" layoutY="180.0" text="Item Name">
             <font>
                 <Font size="22.0" />
