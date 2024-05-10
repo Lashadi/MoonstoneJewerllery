@@ -1,4 +1,3 @@
-/*
 package lk.ijse.moonstonejewerllary.controller;
 
 import javafx.collections.FXCollections;
@@ -11,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.moonstonejewerllary.model.Item;
 import lk.ijse.moonstonejewerllary.model.tm.ItemTm;
 import lk.ijse.moonstonejewerllary.repository.ItemRepo;
+import lk.ijse.moonstonejewerllary.util.DataValidateController;
 
 import java.net.URL;
 import java.sql.Date;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ItemFormController implements Initializable {
+public class ItemFormControllerr implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colCategory;
@@ -59,6 +59,19 @@ public class ItemFormController implements Initializable {
 
     @FXML
     private TextField txtUnitPrice;
+
+    @FXML
+    private Label stockCategoryValidate;
+
+    @FXML
+    private Label stockNameValidate;
+
+    @FXML
+    private Label stockQtyValidate;
+
+    @FXML
+    private Label stockUnitPriceValidate;
+
 
     ItemRepo itemRepo = new ItemRepo();
 
@@ -146,83 +159,100 @@ public class ItemFormController implements Initializable {
 
         Item item = new Item(id, itemName, category, qty, price, date);
 
-        if(){
-        try {
-            boolean isItemSaved = itemRepo.saveItem(item);
-            if(isItemSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Item Saved").show();
-                loadAllItem();
-                tblItem.refresh();
-                btnItemClearOnAction(event);
+        if(DataValidateController.validateItemName(txtItemName.getText())) {
+            if (DataValidateController.validateItemQty(txtQty.getText())) {
+                stockQtyValidate.setText("");
+                if (DataValidateController.validateItemPrice(txtUnitPrice.getText())) {
+                    stockUnitPriceValidate.setText("");
+                    if (DataValidateController.validateItemCategory(txtItemCategory.getText())) {
+                        stockCategoryValidate.setText("Please Enter Valid Category");
+                        try {
+                            boolean isItemSaved = itemRepo.saveItem(item);
+                            if (isItemSaved) {
+                                new Alert(Alert.AlertType.CONFIRMATION, "Item Saved").show();
+                                loadAllItem();
+                                tblItem.refresh();
+                                btnItemClearOnAction(event);
+                            }
+                        } catch (SQLException e) {
+                            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                        }
+                    } else {
+                        stockCategoryValidate.setText("Invalid Category");
+                    }
+                } else {
+                    stockUnitPriceValidate.setText("Invalid Price");
+                }
+            } else {
+                stockQtyValidate.setText("Invalid Quantity");
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }else{
+            stockNameValidate.setText("Invalid Name");
         }
 
-    }
-
-    @FXML
-    void btnItemUpdateOnAction(ActionEvent event) {
-        String code = txtItemCode.getText();
-        String name = txtItemName.getText();
-        String category = txtItemCategory.getText();
-        int qty = Integer.parseInt(txtQty.getText());
-        double price = Double.parseDouble(txtUnitPrice.getText());
-        Date date = Date.valueOf(dpDate.getValue());
-
-
-
-        Item item = new Item(code, name, category, qty, price,date);
-
-        try {
-            boolean isItemUpdated = itemRepo.updateItem(item);
-            if (isItemUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Item Updated").show();
-                loadAllItem();
-            }
-        }catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
 
-    }
+        @FXML
+        void btnItemUpdateOnAction(ActionEvent event) {
+            String code = txtItemCode.getText();
+            String name = txtItemName.getText();
+            String category = txtItemCategory.getText();
+            int qty = Integer.parseInt(txtQty.getText());
+            double price = Double.parseDouble(txtUnitPrice.getText());
+            Date date = Date.valueOf(dpDate.getValue());
 
 
-    @FXML
-    void btnSearchItemOnAction(ActionEvent event) {
-        String code = txtSearchItem.getText();
 
-        try {
-            Item item = itemRepo.searchById(code);
-            if(item != null) {
-                txtItemCode.setText(item.getCode());
-                txtItemName.setText(item.getItemName());
-                txtItemCategory.setText(item.getCategory());
-                txtQty.setText(String.valueOf(item.getQty()));
-                txtUnitPrice.setText(String.valueOf(item.getPrice()));
-                dpDate.getValue();
+            Item item = new Item(code, name, category, qty, price,date);
+
+            try {
+                boolean isItemUpdated = itemRepo.updateItem(item);
+                if (isItemUpdated) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Item Updated").show();
+                    loadAllItem();
+                }
+            }catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+
+        }
+
+
+        @FXML
+        void btnSearchItemOnAction(ActionEvent event) {
+            String code = txtSearchItem.getText();
+
+            try {
+                Item item = itemRepo.searchById(code);
+                if(item != null) {
+                    txtItemCode.setText(item.getCode());
+                    txtItemName.setText(item.getItemName());
+                    txtItemCategory.setText(item.getCategory());
+                    txtQty.setText(String.valueOf(item.getQty()));
+                    txtUnitPrice.setText(String.valueOf(item.getPrice()));
+                    dpDate.getValue();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
+        }
+
+
+        public void txtItemCodeSearchOnAction(ActionEvent event) {
+            String itemCode = txtItemCode.getText();
+
+            try {
+                Item item = itemRepo.searchById(itemCode);
+                if(item != null) {
+                    txtItemCode.setText(item.getCode());
+                    txtItemName.setText(item.getItemName());
+                    txtItemCategory.setText(item.getCategory());
+                    txtQty.setText(String.valueOf(item.getQty()));
+                    txtUnitPrice.setText(String.valueOf(item.getPrice()));
+                    dpDate.getValue();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
         }
     }
-
-
-    public void txtItemCodeSearchOnAction(ActionEvent actionEvent) {
-        String itemCode = txtItemCode.getText();
-
-        try {
-            Item item = itemRepo.searchById(itemCode);
-            if(item != null) {
-                txtItemCode.setText(item.getCode());
-                txtItemName.setText(item.getItemName());
-                txtItemCategory.setText(item.getCategory());
-                txtQty.setText(String.valueOf(item.getQty()));
-                txtUnitPrice.setText(String.valueOf(item.getPrice()));
-                dpDate.getValue();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-    }
-}
-*/
