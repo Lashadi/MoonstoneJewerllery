@@ -1,5 +1,8 @@
 package lk.ijse.moonstonejewerllary.repository;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.XYChart;
 import lk.ijse.moonstonejewerllary.db.DbConnection;
 import lk.ijse.moonstonejewerllary.model.Item;
 import lk.ijse.moonstonejewerllary.model.OrderDetails;
@@ -39,6 +42,26 @@ public class ItemRepo {
         preparedStatement.setString(2,orderDetails.getItemCode());
 
         return preparedStatement.executeUpdate() > 0;
+    }
+
+    public static ObservableList<XYChart.Series<String, Integer>> getBarChartData() throws SQLException {
+        String sql = "SELECT iName,iQty FROM Item";
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        ObservableList<XYChart.Series<String,Integer>> dataList = FXCollections.observableArrayList();
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        XYChart.Series<String,Integer> series = new XYChart.Series<>();
+
+        while (resultSet.next()){
+            String name = resultSet.getString("iName");
+            int qty = resultSet.getInt("iQty");
+            series.getData().add(new XYChart.Data<>(name,qty));
+        }
+        dataList.add(series);
+        return dataList;
     }
 
     public String generateNextItemId() throws SQLException, SQLException {
