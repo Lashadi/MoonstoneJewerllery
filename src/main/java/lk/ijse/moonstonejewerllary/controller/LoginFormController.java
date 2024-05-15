@@ -54,7 +54,6 @@ public class LoginFormController {
             }catch (IOException e){
                 throw new RuntimeException(e);
         }
-
     }
 
 
