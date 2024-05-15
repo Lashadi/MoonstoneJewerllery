@@ -2,14 +2,17 @@ package lk.ijse.moonstonejewerllary.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Pagination;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import lk.ijse.moonstonejewerllary.util.Navigation;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class GlobalFormController {
+public class GlobalFormController implements Initializable {
 
     @FXML
     private Pane paginPane;
@@ -49,5 +52,15 @@ public class GlobalFormController {
 
     public void btnSupplierOnAction(ActionEvent actionEvent) throws IOException {
         Navigation.switchPaging(paginPane,"supplier_form.fxml");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        paginPane.setVisible(true);
+        try {
+            Navigation.switchPaging(paginPane,"dashboard_form.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

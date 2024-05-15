@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -16,6 +18,11 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="1500.0" style="-fx-background-color: ffc8dd; -fx-background-radius: 35;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.OrderFormController">
    <children>
+      <ImageView fitHeight="500.0" fitWidth="700.0" layoutX="400.0" layoutY="80.0" opacity="0.8">
+         <image>
+            <Image url="@../assest/Order.png" />
+         </image>
+      </ImageView>
       <Label layoutX="140.0" layoutY="210.0" text="Customer ID">
          <font>
             <Font name="System Bold" size="22.0" />

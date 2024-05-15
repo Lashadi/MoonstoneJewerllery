@@ -5,6 +5,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -14,6 +16,11 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="1500.0" style="-fx-background-radius: 35; -fx-background-color: ffc8dd;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.moonstonejewerllary.controller.EmployeeFormController">
    <children>
+      <ImageView fitHeight="500.0" fitWidth="700.0" layoutX="350.0" layoutY="40.0" opacity="0.8">
+         <image>
+            <Image url="@../assest/Employee.png" />
+         </image>
+      </ImageView>
       <Label layoutX="450.0" layoutY="25.0" text="EMPLOYEE MANAGEMENT" textAlignment="CENTER">
          <font>
             <Font name="Ubuntu Bold" size="48.0" />
