@@ -81,7 +81,7 @@
             <Font size="23.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="1040.0" layoutY="399.0" onAction="#btnEmployeeDeleteOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #6F1E51; -fx-background-radius: 35;" text="Delete" textFill="#f5efef">
+      <JFXButton buttonType="RAISED" layoutX="1040.0" layoutY="399.0" onAction="#btnEmployeeDeleteOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: 5e548e; -fx-background-radius: 35;" text="Delete" textFill="#f5efef">
          <font>
             <Font size="23.0" />
          </font>
@@ -96,7 +96,7 @@
          </columns>
       </TableView>
       <Line endX="1350.0" layoutX="100.0" layoutY="100.0" startX="-100.0" stroke="WHITE" strokeWidth="5.0" />
-      <JFXButton buttonType="RAISED" layoutX="910.0" layoutY="399.0" onAction="#btnEmployeeClearOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #6F1E51; -fx-background-radius: 35;" text="Clear" textFill="#f5efef">
+      <JFXButton buttonType="RAISED" layoutX="910.0" layoutY="399.0" onAction="#btnEmployeeClearOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: be95c4; -fx-background-radius: 35;" text="Clear" textFill="#f5efef">
          <font>
             <Font size="23.0" />
          </font>

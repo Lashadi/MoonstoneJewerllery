@@ -89,13 +89,12 @@
         <TableView fx:id="tblSupplier" layoutX="50.0" layoutY="480.0" opacity="0.6" prefHeight="255.0" prefWidth="1400.0">
             <columns>
                 <TableColumn fx:id="colSupplierId" prefWidth="190.0" text="Supplier ID" />
-                <TableColumn fx:id="colSupplierName" prefWidth="291.66668701171875" text="Supplier Name" />
-                <TableColumn minWidth="0.0" prefWidth="78.66668701171875" />
-                <TableColumn fx:id="colItemName" prefWidth="454.33331298828125" text="ItemName" />
+                <TableColumn fx:id="colSupplierName" prefWidth="289.0" text="Supplier Name" />
+                <TableColumn fx:id="colItemName" prefWidth="435.0" text="ItemName" />
                 <TableColumn fx:id="colSupplierTel" prefWidth="384.33331298828125" text="Supplier Tel" />
             </columns>
         </TableView>
-        <Line endX="1350.0" layoutX="100.0" layoutY="100.0" startX="-100.0" stroke="WHITE" strokeWidth="5.0" />
+        <Line endX="1400.0" layoutX="100.0" layoutY="100.0" startX="-100.0" stroke="WHITE" strokeWidth="5.0" />
         <JFXButton buttonType="RAISED" layoutX="900.0" layoutY="409.0" onAction="#btnSupplierClearOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #6F1E51; -fx-background-radius: 35;" text="Clear" textFill="#f5efef">
             <font>
                 <Font size="23.0" />

@@ -14,10 +14,9 @@ import lk.ijse.moonstonejewerllary.db.DbConnection;
 import lk.ijse.moonstonejewerllary.model.*;
 import lk.ijse.moonstonejewerllary.model.tm.AddToCartTm;
 import lk.ijse.moonstonejewerllary.repository.*;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.InputStream;
@@ -296,4 +295,24 @@ public class OrderFormController implements Initializable {
         btnAddToCartOnAction(event);
     }
 
+    @FXML
+    void btnPrintCertificateOnAction(ActionEvent event) throws JRException, SQLException {
+        JasperDesign jasperDesign =
+                JRXmlLoader.load("src/main/resources/report/certificate.jrxml");
+        JasperReport jasperReport =
+                JasperCompileManager.compileReport(jasperDesign);
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("orderID",txtOrderId.getText());
+
+
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(
+                        jasperReport,
+                        data,
+                        DbConnection.getInstance().getConnection());
+
+        JasperViewer.viewReport(jasperPrint,false);
+
+    }
 }
