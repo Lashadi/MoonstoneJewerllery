@@ -88,7 +88,7 @@
             <Font size="23.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="1040.0" layoutY="450.0" onAction="#btnCustomerDeleteOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #6F1E51; -fx-background-radius: 35;" text="Delete" textFill="#f5efef">
+      <JFXButton buttonType="RAISED" layoutX="1040.0" layoutY="450.0" onAction="#btnCustomerDeleteOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #833471; -fx-background-radius: 35;" text="Delete" textFill="#f5efef">
          <font>
             <Font size="23.0" />
          </font>
@@ -109,7 +109,7 @@
       </Label>
       <TextField fx:id="txtCustomerEmail" layoutX="1040.0" layoutY="280.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 35;" />
       <Line endX="1350.0" layoutX="100.0" layoutY="100.0" startX="-100.0" stroke="WHITE" strokeWidth="5.0" />
-      <JFXButton buttonType="RAISED" layoutX="910.0" layoutY="450.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #6F1E51; -fx-background-radius: 35;" text="Clear" textFill="#f5efef">
+      <JFXButton buttonType="RAISED" layoutX="910.0" layoutY="450.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #833471; -fx-background-radius: 35;" text="Clear" textFill="#f5efef">
          <font>
             <Font size="23.0" />
          </font>
